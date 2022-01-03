@@ -25,6 +25,9 @@ class _MySignupPageState  extends State<Signup> {
 
   final AuthService _auth = AuthService();
   final GlobalKey<FormState> _formKeyValue = new GlobalKey<FormState>();
+  TextEditingController nameController = TextEditingController();
+    TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   String error = '' ;
   final res = Check();
   var requestsoffriends =[];
@@ -64,7 +67,7 @@ class _MySignupPageState  extends State<Signup> {
       children: [
         BackgroundImage(),
           Scaffold(
-            backgroundColor: Colors.transparent,
+            backgroundColor: Colors.white,
             body: SingleChildScrollView(
               child: Form(
                 key : _formKeyValue,
@@ -79,7 +82,7 @@ class _MySignupPageState  extends State<Signup> {
                         height: 100,
                         child: Center(
                           child: Image.asset(
-                            'assets/images/logo.png',
+                            'assets/images/logoNew.png',
                             width: 100,
                             height: 100,
                           ),
@@ -87,51 +90,77 @@ class _MySignupPageState  extends State<Signup> {
                         ),
                       ),
 
-                      Container(width: 340,
-                        child:
-                        Text('Sign up', style: TextStyle(fontSize: 30
-                          , color: Colors.white,),
-                          textAlign: TextAlign.left,
-
-                        ),),
+                      Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Container(
+                              width: 340,
+                              child: Center(
+                                child: Text(
+                                  'Sign up',
+                                  style: TextStyle(
+                                      fontSize: 30,
+                                      color: Colors.green,
+                                      fontWeight: FontWeight.bold),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ),
+                          ),
                       SizedBox(
                         height: 20,
                       ),
-                      Container(width: 330,
-                        child:
-                        Text('First name', style: TextStyle(fontSize: 20
-                          , color: Colors.red,),
-                          textAlign: TextAlign.left,
-
-                        ),),
+                      
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 25),
                         child: Column(
                           children: [
                             Column(
                                 crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [Container(
+                                children: [
+                                  Container(
 
-                                  child: Column(children: [ new TextFormField(
+                                  child: Column(
+                                    children: [ 
+                                    TextFormField(
 
-                                    decoration: InputDecoration(
-                                      contentPadding: const EdgeInsets.symmetric(
-                                          vertical: 10),
-                                      border: InputBorder.none,
-                                      hintText: 'New Customer',
-                                      prefixIcon: Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 20),
-                                        child: Icon(
-                                          FontAwesomeIcons.user,
-                                          color: Colors.white,
-                                          size: 30,
-                                        ),
-                                      ),
-                                      hintStyle: kBodyText,
-                                      errorStyle: TextStyle(
-                                        fontSize: 16.0,),
-                                    ),
+                                   decoration: InputDecoration(
+                                              enabledBorder: OutlineInputBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(32),
+                                                borderSide: BorderSide(
+                                                    color: Colors.green,
+                                                    width: 1),
+                                              ),
+                                              focusedBorder:OutlineInputBorder(
+            borderSide:  BorderSide(color: Colors.black, width: 2.0),
+            borderRadius: BorderRadius.circular(40),
+          ),
+                                              labelStyle: TextStyle(
+                                                  color: Colors.green),
+                                              hintStyle: TextStyle(
+                                                  color: Colors.green,
+                                                  fontSize: 15),
+                                              // icon: Icon(Icons.mail),
+                                              prefixIcon: Icon(Icons.mail,
+                                                  color: Colors.green
+                                                      ),
+                                              suffixIcon: nameController
+                                                      .text.isEmpty
+                                                  ? Text('')
+                                                  : GestureDetector(
+                                                      onTap: () {
+                                                        nameController.clear();
+                                                      },
+                                                      child: Icon(Icons.close,color: Colors.green,)),
+                                              hintText: 'Full Name',
+                                              labelText: 'Full Name',
+                                              border: OutlineInputBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(32),
+                                                borderSide: BorderSide(
+                                                    color: Colors.green,
+                                                    width: 1),
+                                              )),
 
                   validator: (value) {
                     if (value.trim().isEmpty) {
@@ -154,12 +183,12 @@ class _MySignupPageState  extends State<Signup> {
 
 
 
-                                    style: kBodyText,
+                                    style: TextStyle(color: Colors.black),
                                     textInputAction: TextInputAction.next,
 
 
                                   ),
-                                    Container(height: 1, color: Colors.white,)
+                                   
                                   ]
                                   ),),
 
@@ -171,13 +200,6 @@ class _MySignupPageState  extends State<Signup> {
                           ],
                         ),
                       ),
-                      Container(width: 330,
-                        child:
-                        Text('Email', style: TextStyle(fontSize: 20
-                          , color: Colors.red,),
-                          textAlign: TextAlign.left,
-
-                        ),),
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 25),
                         child: Column(
@@ -190,23 +212,43 @@ class _MySignupPageState  extends State<Signup> {
                                     child: Column(children: [ new TextFormField(
 
                                       decoration: InputDecoration(
-                                        contentPadding: const EdgeInsets.symmetric(
-                                            vertical: 10),
-                                        border: InputBorder.none,
-                                        hintText: 'yourname@email.com',
-                                        prefixIcon: Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 20),
-                                          child: Icon(
-                                            FontAwesomeIcons.envelope,
-                                            color: Colors.white,
-                                            size: 30,
-                                          ),
-                                        ),
-                                        hintStyle: kBodyText,
-                                        errorStyle: TextStyle(
-                                          fontSize: 16.0,),
-                                      ),
+                                               focusedBorder:OutlineInputBorder(
+            borderSide:  BorderSide(color: Colors.black, width: 2.0),
+            borderRadius: BorderRadius.circular(40),
+          ),
+                                              enabledBorder: OutlineInputBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(32),
+                                                borderSide: BorderSide(
+                                                    color: Colors.green,
+                                                    width: 1),
+                                              ),
+                                              labelStyle: TextStyle(
+                                                  color: Colors.green),
+                                              hintStyle: TextStyle(
+                                                  color: Colors.green,
+                                                  fontSize: 15),
+                                              // icon: Icon(Icons.mail),
+                                              prefixIcon: Icon(Icons.mail,
+                                                  color: Colors.green
+                                                      ),
+                                              suffixIcon: nameController
+                                                      .text.isEmpty
+                                                  ? Text('')
+                                                  : GestureDetector(
+                                                      onTap: () {
+                                                        nameController.clear();
+                                                      },
+                                                      child: Icon(Icons.close,color: Colors.green,)),
+                                              hintText: 'example@mail.com',
+                                              labelText: 'Email',
+                                              border: OutlineInputBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(32),
+                                                borderSide: BorderSide(
+                                                    color: Colors.green,
+                                                    width: 1),
+                                              )),
 
                                       validator: (value) {
                                         if (value.trim().isEmpty) {
@@ -223,13 +265,13 @@ class _MySignupPageState  extends State<Signup> {
                                       onSaved: (value) => formsignup.email = value,
 
 
-                                      style: kBodyText,
+                                      style: TextStyle(color: Colors.black),
                                       keyboardType: TextInputType.emailAddress,
                                       textInputAction: TextInputAction.next,
 
 
                                     ),
-                                      Container(height: 1, color: Colors.white,)
+                                      
                                     ]
                                     ),
                                   ),
@@ -242,14 +284,6 @@ class _MySignupPageState  extends State<Signup> {
                           ],
                         ),
                       ),
-
-                      Container(width: 330,
-                        child:
-                        Text('Password', style: TextStyle(fontSize: 20
-                          , color: Colors.red,),
-                          textAlign: TextAlign.left,
-
-                        ),),
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 25),
                         child: Container(
@@ -257,23 +291,43 @@ class _MySignupPageState  extends State<Signup> {
                           child: Column(children: [ new TextFormField(
 
                             decoration: InputDecoration(
-                              contentPadding: const EdgeInsets.symmetric(
-                                  vertical: 10),
-                              border: InputBorder.none,
-                              hintText: '*********',
-                              prefixIcon: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 20),
-                                child: Icon(
-                                  FontAwesomeIcons.lock,
-                                  color: Colors.white,
-                                  size: 30,
-                                ),
-                              ),
-                              hintStyle: kBodyText,
-
-                              errorStyle: TextStyle(
-                                fontSize: 16.0,),
-                            ),
+                               focusedBorder:OutlineInputBorder(
+            borderSide:  BorderSide(color: Colors.black, width: 2.0),
+            borderRadius: BorderRadius.circular(40),
+          ),
+                                              enabledBorder: OutlineInputBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(32),
+                                                borderSide: BorderSide(
+                                                    color: Colors.green,
+                                                    width: 1),
+                                              ),
+                                              labelStyle: TextStyle(
+                                                  color: Colors.green),
+                                              hintStyle: TextStyle(
+                                                  color: Colors.green,
+                                                  fontSize: 15),
+                                              // icon: Icon(Icons.mail),
+                                              prefixIcon: Icon(Icons.mail,
+                                                  color: Colors.green
+                                                      ),
+                                              suffixIcon: nameController
+                                                      .text.isEmpty
+                                                  ? Text('')
+                                                  : GestureDetector(
+                                                      onTap: () {
+                                                        nameController.clear();
+                                                      },
+                                                      child: Icon(Icons.close,color: Colors.green,)),
+                                              hintText: '*******',
+                                              labelText: 'Password',
+                                              border: OutlineInputBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(32),
+                                                borderSide: BorderSide(
+                                                    color: Colors.green,
+                                                    width: 1),
+                                              )),
                             obscureText: true,
                             validator: (value) {
                               if (value.trim().isEmpty) {
@@ -289,12 +343,12 @@ class _MySignupPageState  extends State<Signup> {
                             onSaved: (value) => formsignup.password = value,
 
 
-                            style: kBodyText,
+                            style: TextStyle(color: Colors.black),
                             textInputAction: TextInputAction.done,
 
 
                           ),
-                            Container(height: 1, color: Colors.white,),
+                            
                             SizedBox(
                               height: 15,
                             ),
@@ -310,27 +364,29 @@ class _MySignupPageState  extends State<Signup> {
 
 
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 25),
-                        child: FlatButton(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 5, horizontal: 80,),
-                          shape: StadiumBorder(),
-                          onPressed: () async {
-                            _formSubmit();
-
-
-
-                          },
-                          child: Text('Signup', style: TextStyle(color: Colors
-                              .white, fontSize: 25, fontWeight: FontWeight.w700
-                            ,),),
-                          color: Colors.red[600],
-
-                        ),
-
-
-                      ),
-                      SizedBox(height: 30),
+                                      width: MediaQuery.of(context).size.width,
+                                      height: 90,
+                                      padding: const EdgeInsets.symmetric(horizontal: 50,
+                                          vertical: 15),
+                                      child: FlatButton(
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: 5, horizontal: 100),
+                                        shape: StadiumBorder(),
+                                        onPressed: () {
+                                          _formSubmit();
+                                        },
+                                        child: Text(
+                                          'Signup',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w700,
+                                          ),
+                                        ),
+                                        color: Colors.green,
+                                      ),
+                                    ),  
+                                     SizedBox(height: 30),
                       TermsOfUse(),
 
 
@@ -350,7 +406,7 @@ class _MySignupPageState  extends State<Signup> {
     if (formStateVal.validate()) {
       formStateVal.save();
       dynamic result = await _auth.registerWithEmailAndPassword(formsignup.email, formsignup.password,formsignup.name);
-      res.sendOTP(formsignup.email);
+      // res.sendOTP(formsignup.email);
       if(result == null) {
         setState(() {
           error = 'Email already registered';
