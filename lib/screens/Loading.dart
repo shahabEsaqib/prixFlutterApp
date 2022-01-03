@@ -39,9 +39,9 @@ class LoadingState extends State<Loading> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        BackgroundImage1(),
+        // BackgroundImage1(),
         Scaffold(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white,
           body:  SafeArea( child :
           Column(
             children: [
@@ -49,7 +49,7 @@ class LoadingState extends State<Loading> {
                 padding: const EdgeInsets.symmetric(horizontal: 25,vertical: 220),
                 child: Center(
                     child: Image.asset(
-                      'assets/images/logo.png',
+                      'assets/images/logoNew.png',
                       width: 170,
                       height: 170,
                     )

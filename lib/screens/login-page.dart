@@ -22,6 +22,7 @@ class LoginPage extends StatefulWidget {
 class _MyLoginPageState extends State<LoginPage> {
 //  Map _userObj ={};
   String codeDialog = '';
+  bool _isObscure = true;
 
   DatabaseMethods databaseMethods = new DatabaseMethods();
   String error = '';
@@ -149,7 +150,7 @@ class _MyLoginPageState extends State<LoginPage> {
                             height: 150,
                             child: Center(
                               child: Image.asset(
-                                'assets/images/logo.png',
+                                'assets/images/logoNew.png',
                                 width: 100,
                                 height: 100,
                               ),
@@ -266,7 +267,7 @@ class _MyLoginPageState extends State<LoginPage> {
                                                   color: Colors.green,
                                                   fontSize: 15),
                                               // icon: Icon(Icons.mail),
-                                              prefixIcon: Icon(Icons.mail,
+                                              prefixIcon: Icon(Icons.lock,
                                                   color: Colors.green
                                                       ),
                                               suffixIcon: emailController
@@ -274,9 +275,9 @@ class _MyLoginPageState extends State<LoginPage> {
                                                   ? Text('')
                                                   : GestureDetector(
                                                       onTap: () {
-                                                        emailController.clear();
+                                                        _isObscure = !_isObscure;
                                                       },
-                                                      child: Icon(Icons.close,color: Colors.green,)),
+                                                      child: Icon(Icons.remove_red_eye,color: Colors.green,)),
                                               hintText: '********',
                                               labelText: 'Password',
                                               border: OutlineInputBorder(
@@ -286,7 +287,7 @@ class _MyLoginPageState extends State<LoginPage> {
                                                     color: Colors.green,
                                                     width: 1),
                                               )),
-                                          obscureText: true,
+                                          obscureText: _isObscure,
                                           validator: (value) {
                                             if (value.trim().isEmpty) {
                                               return 'password is required';
@@ -301,7 +302,7 @@ class _MyLoginPageState extends State<LoginPage> {
                                               formVal.password = value,
                                           onSaved: (value) =>
                                               formVal.password = value,
-                                          style: kBodyText,
+                                          style: TextStyle(color: Colors.black),
                                           textInputAction: TextInputAction.done,
                                         ),
                                         
@@ -344,7 +345,7 @@ class _MyLoginPageState extends State<LoginPage> {
                                             fontWeight: FontWeight.w700,
                                           ),
                                         ),
-                                        color: Colors.green,
+                                        color: Colors.red,
                                       ),
                                     ),
                                     Container(
