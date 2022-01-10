@@ -38,9 +38,11 @@ class _SettingsState extends State<Settings> with WidgetsBindingObserver {
 
 
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 30, 30, 30),
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 153, 0, 0),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.grey.shade600,
+        elevation: 0,
 
 
         title: Text("Settings"),
@@ -50,10 +52,17 @@ class _SettingsState extends State<Settings> with WidgetsBindingObserver {
           itemCount: settings.length,
           itemBuilder: (context, index) {
             return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 1.0, horizontal: 4.0),
+
+              padding: EdgeInsets.symmetric(vertical: 1.0, horizontal: 50.0),
               child: Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
                 child: ListTile(
-                  tileColor: Color.fromARGB(255, 169, 73, 73),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  tileColor: Colors.green,
                   onTap: () async {
                     if(index==0){Navigator.of(context).pushNamed(
                         'changepassword', arguments: '');}
@@ -74,7 +83,7 @@ class _SettingsState extends State<Settings> with WidgetsBindingObserver {
                         'LoginPage', arguments: '');};
 
                   },
-                  title: Text("         "+settings[index],style: TextStyle(color:Colors.white,fontFamily: 'Raleway'),),
+                  title: Center(child: Text(""+settings[index],style: TextStyle(color:Colors.white,fontFamily: 'Raleway'),)),
 
 
 

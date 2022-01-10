@@ -62,7 +62,7 @@ class _CheckyouremailState  extends State<Checkyouremail> {
                       height: 100,
                       child: Center(
                         child: Image.asset(
-                          'assets/images/logo.png',
+                          'assets/images/logoNew.png',
                           width: 100,
                           height: 100,
                         ),

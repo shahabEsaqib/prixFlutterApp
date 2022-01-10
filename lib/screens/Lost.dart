@@ -34,10 +34,10 @@ class _LostState extends State<Lost> with WidgetsBindingObserver {
     return Center(
       child: Stack(
           children: [
-            BackgroundImage1(),
+            // BackgroundImage1(),
             Center(
               child: Scaffold(
-                backgroundColor: Colors.transparent,
+                backgroundColor: Colors.white,
 
                 body: Form(
 
@@ -53,7 +53,7 @@ class _LostState extends State<Lost> with WidgetsBindingObserver {
                               'Game over you lost',
                               style: TextStyle(
                                   fontSize: 70, fontWeight: FontWeight.w300,
-                                  color: Colors.white, fontFamily: 'Raleway'
+                                  color: Colors.black, fontFamily: 'Raleway'
 
                               ),
                               textAlign: TextAlign.left,
@@ -66,7 +66,7 @@ class _LostState extends State<Lost> with WidgetsBindingObserver {
                               'You earned :',
                               style: TextStyle(
                                   fontSize: 50, fontWeight: FontWeight.w300,
-                                  color: Colors.white, fontFamily: 'Raleway'
+                                  color: Colors.black, fontFamily: 'Raleway'
 
                               ),
                               textAlign: TextAlign.left,
@@ -80,7 +80,7 @@ class _LostState extends State<Lost> with WidgetsBindingObserver {
                               '     '+points+' points',
                               style: TextStyle(
                                   fontSize: 40, fontWeight: FontWeight.w300,
-                                  color: Colors.white, fontFamily: 'Raleway'
+                                  color: Colors.black, fontFamily: 'Raleway'
 
                               ),
                               textAlign: TextAlign.left,
@@ -89,24 +89,33 @@ class _LostState extends State<Lost> with WidgetsBindingObserver {
                               height: 30
                               ,
                             ),
-                            Center(
-                              child: FlatButton(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 80),
-                                shape: StadiumBorder(),
-                                onPressed: () async {
+                           
+                            Container(
+                                width: MediaQuery.of(context).size.width,
+                                height: 90,
+                                padding: const EdgeInsets.symmetric(horizontal: 50,
+                                    vertical: 15),
+                                child: FlatButton(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 5, horizontal: 60),
+                                  shape: StadiumBorder(),
+                                   onPressed: () async {
                                   await HelperFunctions.savepointsSharedPreference('0');
                                   Navigator.of(context).pushNamed(
                                       'Newuser', arguments: '');
 
                                 },
-                                child: Text('Continue', style: TextStyle(color: Colors
-                                    .white, fontSize: 25, fontWeight: FontWeight.w700
-                                  ,),),
-                                color: Colors.red[800],
-
+                              child: Text(
+                                'Continue',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w700,
+                                ),
                               ),
+                              color: Colors.green,
                             ),
+                          ),
 
 
 

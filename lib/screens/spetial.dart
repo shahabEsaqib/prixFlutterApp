@@ -33,10 +33,10 @@ class _SpetialState extends State<Spetial> with WidgetsBindingObserver {
     return Center(
       child: Stack(
           children: [
-            BackgroundImage1(),
+            // BackgroundImage1(),
             Center(
               child: Scaffold(
-                backgroundColor: Colors.transparent,
+                backgroundColor: Colors.white,
 
                 body: Form(
 
@@ -48,11 +48,11 @@ class _SpetialState extends State<Spetial> with WidgetsBindingObserver {
                               height: 100
                               ,
                             ),
-                            Container(margin: EdgeInsets.symmetric(vertical: 0.0, horizontal: 30.0),width : 300,child: Text(
+                            Container(margin: EdgeInsets.symmetric(vertical: 0.0, horizontal: 50.0),width : 300,child: Text(
                               'Game Over',
                               style: TextStyle(
                                   fontSize: 70, fontWeight: FontWeight.w300,
-                                  color: Colors.white, fontFamily: 'Raleway'
+                                  color: Colors.black, fontFamily: 'Raleway'
 
                               ),
                               textAlign: TextAlign.left,
@@ -65,18 +65,20 @@ class _SpetialState extends State<Spetial> with WidgetsBindingObserver {
                               'You earned :',
                               style: TextStyle(
                                   fontSize: 50, fontWeight: FontWeight.w300,
-                                  color: Colors.white, fontFamily: 'Raleway'
+                                  color: Colors.black, fontFamily: 'Raleway'
 
                               ),
                               textAlign: TextAlign.left,
                             ),),
 
                             SizedBox(
-                              height: 30
+                              height: 10
                               ,
                             ),
                             Container(margin: EdgeInsets.symmetric(vertical: 0.0, horizontal: 30.0),width : 300,child: Text(
-                              '     '+points+' points',
+                              '     '
+                              //  +points+
+                               ' points',
                               style: TextStyle(
                                   fontSize: 40, fontWeight: FontWeight.w300,
                                   color: Colors.white, fontFamily: 'Raleway'
@@ -84,10 +86,10 @@ class _SpetialState extends State<Spetial> with WidgetsBindingObserver {
                               ),
                               textAlign: TextAlign.left,
                             ),),
-                            SizedBox(
-                              height: 30
-                              ,
-                            ),
+                            // SizedBox(
+                            //   height: 10
+                            //   ,
+                            // ),
                             Center(
                               child: FlatButton(
                                 padding: EdgeInsets.symmetric(
@@ -100,9 +102,10 @@ class _SpetialState extends State<Spetial> with WidgetsBindingObserver {
 
                                 },
                                 child: Text('Continue', style: TextStyle(color: Colors
-                                    .white, fontSize: 25, fontWeight: FontWeight.w700
+                                    .white
+                                    , fontSize: 25, fontWeight: FontWeight.w700
                                   ,),),
-                                color: Colors.red[800],
+                                color: Colors.green,
 
                               ),
                             ),

@@ -86,11 +86,13 @@ class _FriendsrequestsState extends State<Friendsrequests> with WidgetsBindingOb
 
 
       return Scaffold(
-        backgroundColor: Color.fromARGB(255, 30, 30, 30),
+        backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 153, 0, 0),
+          backgroundColor: Colors.white,
+          foregroundColor:Colors.grey.shade600,
+          elevation: 0,
           leading: IconButton(
-              icon: Icon(Icons.arrow_back, color: Colors.black),
+              icon: Icon(Icons.arrow_back, color: Colors.grey.shade600),
               onPressed: (){
                 if(testgame==true){Navigator.of(context).pushNamed(
                     'Olduser', arguments: '');}
@@ -108,8 +110,14 @@ class _FriendsrequestsState extends State<Friendsrequests> with WidgetsBindingOb
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 1.0, horizontal: 4.0),
                 child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
                   child: ListTile(
-                    tileColor: Color.fromARGB(255, 169, 73, 73),
+                    tileColor: Colors.green,
+                    shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
                     onTap: () async {
                       print("°°°°°°°°°°°°°°°");
                       myfriends.add(requestsoffriends[index]);
@@ -167,7 +175,7 @@ class _FriendsrequestsState extends State<Friendsrequests> with WidgetsBindingOb
 
 
                     },
-                    title: Text(""+requestsoffriends[index]+"               accept request",style: TextStyle(color:Colors.white,),textAlign: TextAlign.center,),
+                    title: Text(""+requestsoffriends[index]+"               accept request",style: TextStyle(color:Colors.black,),textAlign: TextAlign.center,),
 
 
 

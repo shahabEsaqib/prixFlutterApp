@@ -14,15 +14,9 @@ class NewGame2 extends StatelessWidget {
             BackgroundImage1(),
             Center(
               child: Scaffold(
-                backgroundColor: Colors.transparent,
-                appBar: AppBar(
-                  backgroundColor: Color.fromARGB(255, 153, 0, 0),
+                backgroundColor: Colors.white,
+                          appBar: AppBar(title: Text("New Game"),centerTitle: true,backgroundColor: Colors.white,foregroundColor: Colors.grey.shade600,elevation: 0,),
 
-
-
-                  title: Text("New Game"),
-
-                ),
                 body: Form(
 
                   child:
@@ -33,46 +27,64 @@ class NewGame2 extends StatelessWidget {
                             height: 215
                             ,
                           ),
-                          FlatButton(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 10, horizontal: 33),
-                            shape: StadiumBorder(),
-                            onPressed: () async {
-                              Navigator.of(context).pushNamed(
-                                  'joinroom', arguments: '');
+                          Container(
+                                      width: MediaQuery.of(context).size.width,
+                                      height: 90,
+                                      padding: const EdgeInsets.symmetric(horizontal: 30,
+                                          vertical: 15),
+                                      child: FlatButton(
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: 5, horizontal: 50),
+                                        shape: StadiumBorder(),
+                                        onPressed: () async {Navigator.of(context).pushNamed(
+                                  'Joinroom', arguments:'');
 
 
-
-                            },
-                            child: Text('Join Game With Friends', style: TextStyle(color: Colors
-                                .white, fontSize: 25, fontWeight: FontWeight.w700
-                              ,),),
-                            color: Colors.red[800],
-
-                          ),
-                          SizedBox(
-                            height: 30
-                            ,
-                          ),
-                          Center(
-                            child: FlatButton(
-                              padding: EdgeInsets.symmetric(
-                                  vertical: 10, horizontal: 70),
-
-                              shape: StadiumBorder(),
-                              onPressed: () async {
-                                buttoncheck=await HelperFunctions.getLocalGameSharedPreference();
-                                if(buttoncheck==true){Navigator.of(context).pushNamed(
-                                    'JoinLocalGame',arguments: '');}
 
                               },
-                              child: Text('Join Local Game', style: TextStyle(color: Colors
-                                  .white, fontSize: 25, fontWeight: FontWeight.w700
-                                ,),),
-                              color: Colors.red[800],
-
-                            ),
+                                        child: Text(
+                                          'Join Game With Friends',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w700,
+                                          ),
+                                        ),
+                                        color: Colors.green,
+                                      ),
+                                    ),
+                  
+                          SizedBox(
+                            height: 10
+                            ,
                           ),
+                          
+                          Container(
+                                      width: MediaQuery.of(context).size.width,
+                                      height: 90,
+                                      padding: const EdgeInsets.symmetric(horizontal: 30,
+                                          vertical: 15),
+                                      child: FlatButton(
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: 5, horizontal: 50),
+                                        shape: StadiumBorder(),
+                                        onPressed: () async {Navigator.of(context).pushNamed(
+                                  'JoinLocalGame', arguments:'');
+
+
+
+                              },
+                                        child: Text(
+                                          'Join Local Game',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w700,
+                                          ),
+                                        ),
+                                        color: Colors.green,
+                                      ),
+                                    ),
 
 
 

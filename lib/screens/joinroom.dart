@@ -114,15 +114,16 @@ class _JoinroomState extends State<Joinroom> with WidgetsBindingObserver {
 
 
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 30, 30, 30),
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 153, 0, 0),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.grey.shade600,
         actions: [
 
 
         ],
 
-        title: Text("join room"),
+        title: Text("join room",style: TextStyle(color: Colors.grey.shade600),),
 
       ),
       body:ListView.builder(
@@ -131,8 +132,14 @@ class _JoinroomState extends State<Joinroom> with WidgetsBindingObserver {
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 1.0, horizontal: 4.0),
               child: Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
                 child: ListTile(
-                  tileColor: Color.fromARGB(255, 169, 73, 73),
+                  tileColor: Colors.green,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
                   onTap: () async {
                     await FirebaseFirestore.instance
                         .collection(listofRooms[index]).where("identifier", isEqualTo : "Player")
@@ -214,7 +221,7 @@ class _JoinroomState extends State<Joinroom> with WidgetsBindingObserver {
 
 
                   },
-                  title: Text(listofRooms[index]+"                          join game",style: TextStyle(color:Colors.white),textAlign: TextAlign.center,),
+                  title: Text(listofRooms[index]+"join game",style: TextStyle(color:Colors.white),textAlign: TextAlign.center,),
 
 
 

@@ -1,5 +1,4 @@
 import 'package:flutter_loginpage/screens/firstLoading.dart';
-import '../widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 

@@ -17,11 +17,11 @@ class TermsOfUse extends StatelessWidget {
         textAlign: TextAlign.center,
         text: TextSpan(
           text: "By creating an account, you are agreeing to our\n",
-          style: TextStyle(color :Color.fromARGB(255, 255, 255, 255),),
+          style: TextStyle(color :Colors.grey.shade600,),
           children: [
             TextSpan(
               text: "Terms & Conditions ",
-              style: TextStyle(fontWeight: FontWeight.bold,color :Colors.red),
+              style: TextStyle(fontWeight: FontWeight.bold,color :Colors.green),
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
                   showModal(
@@ -35,10 +35,10 @@ class TermsOfUse extends StatelessWidget {
                   );
                 },
             ),
-            TextSpan(text: "and "),
+            TextSpan(text: "and ",style: TextStyle(color: Colors.grey.shade600)),
             TextSpan(
               text: "Privacy Policy! ",
-              style: TextStyle(fontWeight: FontWeight.bold,color :Colors.red,),
+              style: TextStyle(fontWeight: FontWeight.bold,color :Colors.green,),
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
                   showDialog(

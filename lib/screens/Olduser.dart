@@ -17,10 +17,10 @@ class Olduser extends StatelessWidget {
     return Center(
       child: Stack(
           children: [
-            BackgroundImage1(),
+            // BackgroundImage1(),
             Center(
               child: Scaffold(
-                backgroundColor: Colors.transparent,
+                backgroundColor: Colors.white,
                 body: SingleChildScrollView(
                   child: Form(
 
@@ -28,144 +28,156 @@ class Olduser extends StatelessWidget {
                         child: Column(
                             children: [
                               Container(margin: const EdgeInsets.only(left: 15.0, right: 15.0,top :15),alignment: Alignment.centerRight,
-                                  child :IconButton(icon: Icon(Icons.album,color: Colors.amber,), onPressed: () {Navigator.push(
+                                  child :IconButton(icon: Icon(Icons.album,color: Colors.green,), onPressed: () {Navigator.push(
                                     context,
                                     MaterialPageRoute(builder: (context) => Spetial2()),);})),
                               SizedBox(
                                 height: 80
                                 ,
                               ),
-                              FlatButton(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 60),
-                                shape: StadiumBorder(),
-                                onPressed: () async {
-                                  roomName=await HelperFunctions.getRoomSharedPreference();
-                                  print(roomName);
-                                  Navigator.of(context).pushNamed(
-                                    'Loading3', arguments: '');
-
-
-
-
-                                },
-                                child: Text('Continue Game', style: TextStyle(color: Colors
-                                    .white, fontSize: 25, fontWeight: FontWeight.w700
-                                  ,),),
-                                color: Colors.red[800],
-
-                              ),
-
-                              Center(
-                                child :SizedBox(
-                                  height: 1
-                                  ,
+                          Container(
+                                width: MediaQuery.of(context).size.width,
+                                height: 90,
+                                padding: const EdgeInsets.symmetric(horizontal: 50,
+                                    vertical: 15),
+                                child: FlatButton(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 5, horizontal: 60),
+                                  shape: StadiumBorder(),
+                                  onPressed: () async {Navigator.of(context).pushNamed(
+                                  'Loading3', arguments:'');
+                             },
+                              child: Text(
+                                'Continue Game',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w700,
                                 ),
                               ),
-                              SizedBox(
-                                height: 14
-                                ,
+                              color: Colors.green,
+                            ),
+                          ), 
+
+                              Container(
+                                width: MediaQuery.of(context).size.width,
+                                height: 90,
+                                padding: const EdgeInsets.symmetric(horizontal: 50,
+                                    vertical: 15),
+                                child: FlatButton(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 5, horizontal: 60),
+                                  shape: StadiumBorder(),
+                                  onPressed: () async {Navigator.of(context).pushNamed(
+                                  'ToGameStats', arguments:'');
+                             },
+                              child: Text(
+                                'Game Stats',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w700,
+                                ),
                               ),
-                              FlatButton(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 80),
-                                shape: StadiumBorder(),
-                                onPressed: () async {Navigator.of(context).pushNamed(
-                                    'ToGameStats', arguments: '');
+                              color: Colors.green,
+                            ),
+                          ),
+                              Container(
+                                width: MediaQuery.of(context).size.width,
+                                height: 90,
+                                padding: const EdgeInsets.symmetric(horizontal: 50,
+                                    vertical: 15),
+                                child: FlatButton(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 5, horizontal: 60),
+                                  shape: StadiumBorder(),
+                                  onPressed: () async {Navigator.of(context).pushNamed(
+                                  'peopleintheroom', arguments:'');
+                             },
+                              child: Text(
+                                'Room',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                              color: Colors.green,
+                            ),
+                          ),
+                              
+                              Container(
+                                width: MediaQuery.of(context).size.width,
+                                height: 90,
+                                padding: const EdgeInsets.symmetric(horizontal: 50,
+                                    vertical: 15),
+                                child: FlatButton(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 5, horizontal: 60),
+                                  shape: StadiumBorder(),
+                                  onPressed: () async {Navigator.of(context).pushNamed(
+                                  'Settings', arguments:'');
+                             },
+                              child: Text(
+                                'Settings',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                              color: Colors.green,
+                            ),
+                          ),
+                             
+                             
+                              Container(
+                                width: MediaQuery.of(context).size.width,
+                                height: 90,
+                                padding: const EdgeInsets.symmetric(horizontal: 50,
+                                    vertical: 15),
+                                child: FlatButton(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 5, horizontal: 60),
+                                  shape: StadiumBorder(),
+                                   onPressed: () async {exit(0);
                                 },
-                                child: Text('Game Stats', style: TextStyle(color: Colors
-                                    .white, fontSize: 25, fontWeight: FontWeight.w700
-                                  ,),),
-                                color: Colors.red[800],
-
+                              child: Text(
+                                'Quite Game',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w700,
+                                ),
                               ),
-                              SizedBox(
-                                height: 15
-                                ,
-                              ),
-                              FlatButton(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 115),
-                                shape: StadiumBorder(),
-                                onPressed: () async {
-                                  roomName=await HelperFunctions.getRoomSharedPreference();
-                                  print(roomName);
-                                  Navigator.of(context).pushNamed(
-                                      'peopleintheroom', arguments: '');
-
-
-
-
-                                },
-                                child: Text('Room', style: TextStyle(color: Colors
-                                    .white, fontSize: 25, fontWeight: FontWeight.w700
-                                  ,),),
-                                color: Colors.red[800],
-
-                              ),
-                              SizedBox(
-                                height: 15
-                                ,
-                              ),
-                              FlatButton(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 100),
-                                shape: StadiumBorder(),
-                                onPressed: () async {
-                                  Navigator.of(context).pushNamed(
-                                    'Settings', arguments: '');
-
-
-
-                                },
-                                child: Text('Settings', style: TextStyle(color: Colors
-                                    .white, fontSize: 25, fontWeight: FontWeight.w700
-                                  ,),),
-                                color: Colors.red[800],
-
-                              ),
-                              SizedBox(
-                                height: 15
-                                ,
-                              ),
-                              FlatButton(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 83),
-                                shape: StadiumBorder(),
-                                onPressed: () async {exit(0);
-
-
-
-                                },
-                                child: Text('Quite Game', style: TextStyle(color: Colors
-                                    .white, fontSize: 25, fontWeight: FontWeight.w700
-                                  ,),),
-                                color: Colors.red[800],
-
-                              ),
-                              SizedBox(
-                                height: 65
-                                ,
-                              ),
-                              FlatButton(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 55),
-                                shape: StadiumBorder(side: BorderSide(color: Colors.red[800])),
-
-
-                                onPressed: () async {Navigator.of(context).pushNamed(
-                                    'shareWithfriends', arguments: '');
-
-
-
-
-                                },
-                                child: Text('Share with Friends', style: TextStyle(color: Colors
-                                    .white, fontSize: 25, fontWeight: FontWeight.w700
-                                  ,),),
-                                //color: Colors.red[800],
-
-                              ),
+                              color: Colors.green,
+                            ),
+                          ),
+                              
+                              Container(
+                width: MediaQuery.of(context).size.width,
+                height: 90,
+                padding: const EdgeInsets.symmetric(horizontal: 50,
+                    vertical: 15),
+                child: FlatButton(
+                  padding: EdgeInsets.symmetric(
+                      vertical: 5, horizontal: 60),
+                  shape: StadiumBorder(),
+                  onPressed: () async {
+                Navigator.of(context).pushNamed(
+                    'shareWithfriends', arguments: '');
+              },
+                    child: Text(
+                    'Share with Friends',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  color: Colors.green,
+                ),
+              ), 
 
 
 

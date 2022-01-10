@@ -558,7 +558,11 @@ class RouteGenerator {
   static Route<dynamic> _errorRoute(){
     return MaterialPageRoute(builder: (_) {
       return Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.grey.shade600,
+          elevation:0,
           title: Text('error'),
         ),
         body: Center(

@@ -14,9 +14,11 @@ class ToGameStats extends StatelessWidget {
             BackgroundImage1(),
             Center(
               child: Scaffold(
-                backgroundColor: Colors.transparent,
+                backgroundColor: Colors.white,
                 appBar: AppBar(
-                  backgroundColor: Color.fromARGB(255, 153, 0, 0),
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.grey.shade600,
+                  elevation: 0,
 
 
 
@@ -33,45 +35,72 @@ class ToGameStats extends StatelessWidget {
                             height: 215
                             ,
                           ),
-                          FlatButton(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 10, horizontal: 75),
-                            shape: StadiumBorder(),
-                            onPressed: () async {
-                              Navigator.of(context).pushNamed(
-                                  'gamestats', arguments: '');
+                          // FlatButton(
+                          //   padding: EdgeInsets.symmetric(
+                          //       vertical: 10, horizontal: 75),
+                          //   shape: StadiumBorder(),
+                          //   onPressed: () async {
+                          //     Navigator.of(context).pushNamed(
+                          //         'gamestats', arguments: '');
 
 
 
-                            },
-                            child: Text('Game Stats', style: TextStyle(color: Colors
-                                .white, fontSize: 25, fontWeight: FontWeight.w700
-                              ,),),
-                            color: Colors.red[800],
+                          //   },
+                          //   child: Text('Game Stats', style: TextStyle(color: Colors
+                          //       .white, fontSize: 25, fontWeight: FontWeight.w700
+                          //     ,),),
+                          //   color: Colors.red[800],
 
-                          ),
-                          SizedBox(
-                            height: 15
-                            ,
-                          ),
-                          Center(
-                            child: FlatButton(
-                              padding: EdgeInsets.symmetric(
-                                  vertical: 10, horizontal: 70),
-
-                              shape: StadiumBorder(),
-                              onPressed: () {
-                                Navigator.of(context).pushNamed(
-                                    'GameRules',arguments: '');
-
-                              },
-                              child: Text('Game Rules', style: TextStyle(color: Colors
-                                  .white, fontSize: 25, fontWeight: FontWeight.w700
-                                ,),),
-                              color: Colors.red[800],
-
-                            ),
-                          ),
+                          // ),
+                          Container(
+                width: MediaQuery.of(context).size.width,
+                height: 90,
+                padding: const EdgeInsets.symmetric(horizontal: 50,
+                    vertical: 15),
+                child: FlatButton(
+                  padding: EdgeInsets.symmetric(
+                      vertical: 5, horizontal: 60),
+                  shape: StadiumBorder(),
+                  onPressed: () async {
+                Navigator.of(context).pushNamed(
+                    'gamestats', arguments: '');
+              },
+                    child: Text(
+                    'Game stats',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  color: Colors.green,
+                ),
+              ), 
+                       
+                          Container(
+                width: MediaQuery.of(context).size.width,
+                height: 90,
+                padding: const EdgeInsets.symmetric(horizontal: 50,
+                    vertical: 15),
+                child: FlatButton(
+                  padding: EdgeInsets.symmetric(
+                      vertical: 5, horizontal: 60),
+                  shape: StadiumBorder(),
+                  onPressed: () async {
+                Navigator.of(context).pushNamed(
+                    'GameRules', arguments: '');
+              },
+                    child: Text(
+                    'Game Rules',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  color: Colors.green,
+                ),
+              ), 
 
 
 

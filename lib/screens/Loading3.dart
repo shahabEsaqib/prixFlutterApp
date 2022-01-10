@@ -37,9 +37,9 @@ class LoadingState3 extends State<Loading3> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        BackgroundImage1(),
+        // BackgroundImage1(),
         Scaffold(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white,
           body:  SafeArea( child :
             Column(
               children: [

@@ -31,11 +31,13 @@ class _HelpState  extends State<Help > {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        BackgroundImage1(),
+        // BackgroundImage1(),
         Scaffold(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white,
         appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 153, 0, 0),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.grey.shade600,
+        elevation: 0,
 
 
         title: Text("About"),),
@@ -61,7 +63,7 @@ class _HelpState  extends State<Help > {
                           'Help',
                           style: TextStyle(
                               fontSize: 25, fontWeight: FontWeight.w400,
-                              color: Colors.white, fontFamily: 'Raleway'
+                              color: Colors.black, fontFamily: 'Raleway'
 
                           ),
                           textAlign: TextAlign.left,
@@ -88,7 +90,7 @@ class _HelpState  extends State<Help > {
                       child: Container(
                         padding: const EdgeInsets.symmetric(horizontal: 25),
                         child: Container(decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white,),
+                          border: Border.all(color: Colors.green,),
 
                           borderRadius: BorderRadius.zero,
                         ),
@@ -144,7 +146,7 @@ class _HelpState  extends State<Help > {
                       child: Container(
                         padding: const EdgeInsets.symmetric(horizontal: 25),
                         child: Container(decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white,),
+                          border: Border.all(color: Colors.green,),
 
                           borderRadius: BorderRadius.zero,
                         ),
@@ -209,7 +211,7 @@ class _HelpState  extends State<Help > {
                         padding: const EdgeInsets.symmetric(horizontal: 25),
                         child: Container(decoration: BoxDecoration(
 
-                          border: Border.all(color: Colors.white,),
+                          border: Border.all(color: Colors.green,),
 
                           borderRadius: BorderRadius.zero,
                         ),
@@ -296,7 +298,7 @@ class _HelpState  extends State<Help > {
 
                         },
                         child: Text('Send', style: TextStyle(
-                          color: Colors.white,
+                          color: Colors.black,
                           fontSize: 25,
                           fontWeight: FontWeight.w700
                           ,),),
@@ -315,7 +317,7 @@ class _HelpState  extends State<Help > {
 
                       decoration: BoxDecoration(
                           color: Colors.grey[100].withOpacity(0.1),
-                          border: Border.all(color: Colors.white,)       ),),/*
+                          border: Border.all(color: Colors.green,)       ),),/*
                          *
                         child : Column(children: [
                           Container(child :ElevatedButton.icon(

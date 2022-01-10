@@ -11,12 +11,14 @@ class ShareWithfriends extends StatelessWidget {
     return Center(
       child: Stack(
           children: [
-            BackgroundImage1(),
+            // BackgroundImage1(),
             Center(
               child: Scaffold(
-                backgroundColor: Colors.transparent,
+                backgroundColor: Colors.white,
                 appBar: AppBar(
-                  backgroundColor: Color.fromARGB(255, 153, 0, 0),
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.grey.shade600,
+                  elevation: 0,
 
 
                   title: Text("Share with friends"),
@@ -32,70 +34,80 @@ class ShareWithfriends extends StatelessWidget {
                                 height: 185
                                 ,
                               ),
-                              FlatButton(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 60),
-                                shape: StadiumBorder(side: BorderSide(color: Colors.red[800])),
-                                onPressed: () async {
+                             
+                              Container(
+                                      width: MediaQuery.of(context).size.width,
+                                      height: 90,
+                                      padding: const EdgeInsets.symmetric(horizontal: 50,
+                                          vertical: 15),
+                                      child: FlatButton(
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: 5, horizontal: 60),
+                                        shape: StadiumBorder(),
+                                        onPressed: () async {
                                   Navigator.of(context).pushNamed(
                                       'friends', arguments:'');
-
-
-
                                 },
-                                child: Text('Friend in user List', style: TextStyle(color: Colors
-                                    .white, fontSize: 25, fontWeight: FontWeight.w700
-                                  ,),),
+                                          child: Text(
+                                          'Friend in user List',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w700,
+                                          ),
+                                        ),
+                                        color: Colors.green,
+                                      ),
+                                    ),
 
-
-                              ),
-                              SizedBox(
-                                height: 20
-                                ,
-                              ),
-                              Center(
-                                child: FlatButton(
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: 10, horizontal: 90),
-
-                                  shape: StadiumBorder(side: BorderSide(color: Colors.red[800])),
-                                  onPressed: () async {Navigator.of(context).pushNamed(
+                              Container(
+                                      width: MediaQuery.of(context).size.width,
+                                      height: 90,
+                                      padding: const EdgeInsets.symmetric(horizontal: 50,
+                                          vertical: 15),
+                                      child: FlatButton(
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: 5, horizontal: 60),
+                                        shape: StadiumBorder(),
+                                        onPressed: () async {Navigator.of(context).pushNamed(
                                       'HomeScreen', arguments:'');
-
-
-
-
                                   },
-                                  child: Text('Send request', style: TextStyle(color: Colors
-                                      .white, fontSize: 25, fontWeight: FontWeight.w700
-                                    ,),),
-
-
-                                ),
-                              ),
-                              SizedBox(
-                                height: 20
-                                ,
-                              ),
-                         FlatButton(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 90),
-
-                          shape: StadiumBorder(side: BorderSide(color: Colors.red[800])),
-                          onPressed: () async {
+                                          child: Text(
+                                          'send request',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w700,
+                                          ),
+                                        ),
+                                        color: Colors.green,
+                                      ),
+                                    ),
+                          
+                        Container(
+                                      width: MediaQuery.of(context).size.width,
+                                      height: 90,
+                                      padding: const EdgeInsets.symmetric(horizontal: 50,
+                                          vertical: 15),
+                                      child: FlatButton(
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: 5, horizontal: 60),
+                                        shape: StadiumBorder(),
+                                       onPressed: () async {
                           Navigator.of(context).pushNamed(
                               'friendsrequests', arguments:'');
-
-
-
-
                           },
-                          child: Text('your requests', style: TextStyle(color: Colors
-                              .white, fontSize: 25, fontWeight: FontWeight.w700
-                            ,),),
-
-
-                        ),
+                                          child: Text(
+                                          'your requests',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w700,
+                                          ),
+                                        ),
+                                        color: Colors.green,
+                                      ),
+                                    ),
 
                             
 

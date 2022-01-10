@@ -7,8 +7,6 @@ import 'package:flutter_loginpage/services/terms_of_use.dart';
 import 'package:flutter_loginpage/shared/helperfunction.dart';
 import 'package:flutter_loginpage/widgets/Formsignup.dart';
 import 'package:flutter_loginpage/widgets/check.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../palatte.dart';
 import '../widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -141,7 +139,7 @@ class _MySignupPageState  extends State<Signup> {
                                                   color: Colors.green,
                                                   fontSize: 15),
                                               // icon: Icon(Icons.mail),
-                                              prefixIcon: Icon(Icons.mail,
+                                              prefixIcon: Icon(Icons.person,
                                                   color: Colors.green
                                                       ),
                                               suffixIcon: nameController
@@ -152,7 +150,7 @@ class _MySignupPageState  extends State<Signup> {
                                                         nameController.clear();
                                                       },
                                                       child: Icon(Icons.close,color: Colors.green,)),
-                                              hintText: 'Full Name',
+                                              hintText: 'shahab',
                                               labelText: 'Full Name',
                                               border: OutlineInputBorder(
                                                 borderRadius:
@@ -308,7 +306,7 @@ class _MySignupPageState  extends State<Signup> {
                                                   color: Colors.green,
                                                   fontSize: 15),
                                               // icon: Icon(Icons.mail),
-                                              prefixIcon: Icon(Icons.mail,
+                                              prefixIcon: Icon(Icons.lock,
                                                   color: Colors.green
                                                       ),
                                               suffixIcon: nameController

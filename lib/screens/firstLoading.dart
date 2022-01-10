@@ -188,9 +188,9 @@ class FirstLoadingState extends State<FirstLoading> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        BackgroundImage1(),
+        // BackgroundImage1(),
         Scaffold(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white,
           body:  SafeArea( child :
             Column(
               children: [

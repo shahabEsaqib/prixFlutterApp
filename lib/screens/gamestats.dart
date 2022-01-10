@@ -88,11 +88,13 @@ class _GamestatsState extends State<Gamestats> with WidgetsBindingObserver {
 
 
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 30, 30, 30),
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 153, 0, 0),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.grey.shade600,
+        elevation: 0,
         leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: Colors.black),
+            icon: Icon(Icons.arrow_back, color: Colors.grey.shade600),
             onPressed: () {
               if(testtest=true){Navigator.push(
                 context,
@@ -111,12 +113,19 @@ class _GamestatsState extends State<Gamestats> with WidgetsBindingObserver {
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 1.0, horizontal: 4.0),
               child: Card(
+                
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
                 child: ListTile(
-                  tileColor: Color.fromARGB(255, 169, 73, 73),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  tileColor: Colors.green,
                   onTap: () async {
 
                   },
-                  title: Text(realstatsTab[index],style: TextStyle(color:Colors.white,),textAlign: TextAlign.center,),
+                  title: Text(realstatsTab[index],style: TextStyle(color:Colors.green,),textAlign: TextAlign.center,),
 
 
 

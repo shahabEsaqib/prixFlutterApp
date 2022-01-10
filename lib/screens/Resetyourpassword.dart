@@ -26,9 +26,9 @@ class _MyResetyourpasswordState  extends State<Resetyourpassword > {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        BackgroundImage1(),
+        // BackgroundImage1(),
         Scaffold(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white,
           body: Form(
             key : _formKeyValue,
             child:
@@ -44,7 +44,7 @@ class _MyResetyourpasswordState  extends State<Resetyourpassword > {
                     height: 100,
                     child: Center(
                       child: Image.asset(
-                        'assets/images/logo.png',
+                        'assets/images/logoNew.png',
                         width: 100,
                         height: 100,
                       ),
@@ -281,7 +281,7 @@ class _MyResetyourpasswordState  extends State<Resetyourpassword > {
                       onPressed:() {_formSubmit();},
                       child : Text( 'Reset',style: TextStyle(color: Colors.white,fontSize: 25,fontWeight:FontWeight.w700
                         ,),),
-                      color : Colors.red[600],
+                      color : Colors.green,
 
                     ),
 

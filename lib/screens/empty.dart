@@ -9,14 +9,15 @@ class Empty extends StatelessWidget {
     return Center(
       child: Stack(
           children: [
-            BackgroundImage1(),
+            // BackgroundImage1(),
             Center(
               child: Scaffold(
-                backgroundColor: Colors.transparent,
+                backgroundColor: Colors.white,
                 appBar: AppBar(
-                  backgroundColor: Color.fromARGB(255, 153, 0, 0),
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.grey.shade600,
                   leading: IconButton(
-                      icon: Icon(Icons.arrow_back, color: Colors.black),
+                      icon: Icon(Icons.arrow_back, color: Colors.grey.shade600),
                       onPressed: (){
                           Navigator.of(context).pushNamed(
                               'Newuser', arguments: '');}),

@@ -51,10 +51,10 @@ class AllowLocationState extends State<AllowLocation> {
     var userLocation = Provider.of<UserLocation>(context);
     return Stack(
       children: [
-        BackgroundImage1(),
+        // BackgroundImage1(),
 
         Scaffold(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white,
           body: SingleChildScrollView(
             child: SafeArea( child :
             Column(
@@ -123,7 +123,7 @@ class AllowLocationState extends State<AllowLocation> {
                   child: Text('Allow', style: TextStyle(color: Colors
                       .white, fontSize: 25, fontWeight: FontWeight.w700
                     ,),),
-                  color: Colors.red[600],
+                  color: Colors.green,
 
                 ),
                 Container(

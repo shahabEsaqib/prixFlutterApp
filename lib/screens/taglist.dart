@@ -23,9 +23,9 @@ class taglist extends StatelessWidget {
     initialData: null,
     child:Stack(
       children: [
-        BackgroundImage1(),
+        // BackgroundImage1(),
         Scaffold(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white,
           body: SingleChildScrollView(
             child: SafeArea(
               child: Column(
@@ -34,7 +34,6 @@ class taglist extends StatelessWidget {
                     height: 20,
                   ),
                   TagList(),
-
 
                 ],
               ),

@@ -59,8 +59,9 @@ class CreateGameState extends State<CreateGame> {
             actions: <Widget>[
 
               FlatButton(
-                color: Colors.red,
-                textColor: Colors.black,
+                color: Colors.green,
+                textColor: Colors.white,
+                
                 child: Text('Confirm'),
                 onPressed: () {
                   setState(() {
@@ -81,13 +82,14 @@ class CreateGameState extends State<CreateGame> {
     return Center(
       child: Stack(
           children: [
-            BackgroundImage1(),
+            // BackgroundImage1(),
             Center(
               child: Scaffold(
-                backgroundColor: Colors.transparent,
+                backgroundColor: Colors.white,
                 appBar: AppBar(
-                  backgroundColor: Color.fromARGB(255, 153, 0, 0),
-
+                  elevation: 0,
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.grey.shade600,
 
                   title: Text("Create Room"),
 
@@ -103,109 +105,128 @@ class CreateGameState extends State<CreateGame> {
                                 height: 215
                                 ,
                               ),
-                              FlatButton(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 97),
+                              Container(
+                                width: MediaQuery.of(context).size.width,
+                                      height: 90,
+                                      padding: const EdgeInsets.symmetric(horizontal: 50,
+                                          vertical: 15),
+                                child: FlatButton(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 5, horizontal: 50),
 
-                                shape: StadiumBorder(),
-                                onPressed: () async {
-                                  myUsername = await HelperFunctions.getUserNameSharedPreference();
-                                  print(myUsername);
+                                  shape: StadiumBorder(),
+                                  onPressed: () async {
+                                    myUsername = await HelperFunctions.getUserNameSharedPreference();
+                                    print(myUsername);
 
-                                  await FirebaseFirestore.instance
-                                      .collection('users')
-                                      .where("userName", isEqualTo: myUsername)
-                                      .get()
-                                      .then((value) {
+                                    await FirebaseFirestore.instance
+                                        .collection('users')
+                                        .where("userName", isEqualTo: myUsername)
+                                        .get()
+                                        .then((value) {
 
-                                      if (value != null) {
-                                        userMap = value.docs[0].data();}
-                                      }
-                                   );
-                                  currDt = DateTime.now();
-                                  await HelperFunctions.savedaySharedPreference(currDt.day.toString());
-                                  await HelperFunctions.savehourSharedPreference(currDt.hour.toString());
-                                  await HelperFunctions.savemonthSharedPreference(currDt.month.toString());
-                                  print("bbbbbbbbbbbbbbbbbb");
+                                        if (value != null) {
+                                          userMap = value.docs[0].data();}
+                                        }
+                                     );
+                                    currDt = DateTime.now();
+                                    await HelperFunctions.savedaySharedPreference(currDt.day.toString());
+                                    await HelperFunctions.savehourSharedPreference(currDt.hour.toString());
+                                    await HelperFunctions.savemonthSharedPreference(currDt.month.toString());
+                                    print("bbbbbbbbbbbbbbbbbb");
 
-                                  await _displayTextInputDialog(context);
-                                  await HelperFunctions.saveRoomSharedPreference(valueText);
-
-
-
-
-                                  await FirebaseFirestore.instance.collection(valueText).doc(myUsername.toString()).set({
-                                    "userName": userMap["userName"],
-                                    "Locationlat": lat,
-                                    "Locationlon" : long,
-                                    "kind" : "Runner",
-                                    "identifier" : "Player",
-                                    "risk" :'',
-                                    "Result" :'',
-                                  }).catchError((e) {
-                                    print(e.toString());
-                                  });
-                                  print("aaaaaaaaaaaaaaaaaaaaa");
-                                  await FirebaseFirestore.instance.collection(valueText).doc("GameStats").set({
-                                    "identifier" : "GameStats",
-                                    "statsTab" : [],
-                                  }).catchError((e) {
-                                    print(e.toString());
-                                  });
-                                  await FirebaseFirestore.instance.collection(valueText).doc("Time").set({
-                                    "identifier" : "Time",
-                                    "day" : currDt.day.toString(),
-                                    "hour" : currDt.hour.toString(),
-                                  }).catchError((e) {
-                                    print(e.toString());
-                                  });
-                                  await HelperFunctions.savegameSharedPreference(true);
-
-                                  print("cccccccccccccccccc");
-                                  await FirebaseFirestore.instance.collection('users').doc(myUsername.toString()).update({
-                                    "Roomname": valueText,
-                                  }).catchError((e) {
-                                    print(e.toString());
-                                  });
-
-
-                                  tt=await HelperFunctions.getRoomSharedPreference();
-                                  print(tt);
-                                  Navigator.of(context).pushNamed(
-                                      'SetDate', arguments: '');
+                                    await _displayTextInputDialog(context);
+                                    await HelperFunctions.saveRoomSharedPreference(valueText);
 
 
 
-                                  },
-                                    child: Text('Create Room', style: TextStyle(color: Colors
-                                        .white, fontSize: 25, fontWeight: FontWeight.w700
-                                      ,),),
-                                    color: Colors.red[800],
 
-                                  ),
+                                    await FirebaseFirestore.instance.collection(valueText).doc(myUsername.toString()).set({
+                                      "userName": userMap["userName"],
+                                      "Locationlat": lat,
+                                      "Locationlon" : long,
+                                      "kind" : "Runner",
+                                      "identifier" : "Player",
+                                      "risk" :'',
+                                      "Result" :'',
+                                    }).catchError((e) {
+                                      print(e.toString());
+                                    });
+                                    print("aaaaaaaaaaaaaaaaaaaaa");
+                                    await FirebaseFirestore.instance.collection(valueText).doc("GameStats").set({
+                                      "identifier" : "GameStats",
+                                      "statsTab" : [],
+                                    }).catchError((e) {
+                                      print(e.toString());
+                                    });
+                                    await FirebaseFirestore.instance.collection(valueText).doc("Time").set({
+                                      "identifier" : "Time",
+                                      "day" : currDt.day.toString(),
+                                      "hour" : currDt.hour.toString(),
+                                    }).catchError((e) {
+                                      print(e.toString());
+                                    });
+                                    await HelperFunctions.savegameSharedPreference(true);
+
+                                    print("cccccccccccccccccc");
+                                    await FirebaseFirestore.instance.collection('users').doc(myUsername.toString()).update({
+                                      "Roomname": valueText,
+                                    }).catchError((e) {
+                                      print(e.toString());
+                                    });
+
+
+                                    tt=await HelperFunctions.getRoomSharedPreference();
+                                    print(tt);
+                                    Navigator.of(context).pushNamed(
+                                        'SetDate', arguments: '');
+
+
+
+                                    },
+                                      child: Text(
+                                            'Create Room',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.w700,
+                                            ),
+                                          ),
+                                      color: Colors.green,
+
+                                    ),
+                              ),
                               SizedBox(
-                                height: 30
+                                height: 10
                                 ,
                               ),
-                                  FlatButton(
-                                  padding: EdgeInsets.symmetric(
+                        
+                        Container(
+                                      width: MediaQuery.of(context).size.width,
+                                      height: 90,
+                                      padding: const EdgeInsets.symmetric(horizontal: 50,
+                                          vertical: 15),
+                                      child: FlatButton(
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: 5, horizontal: 50),
+                                        shape: StadiumBorder(),
+                                        onPressed: () async {Navigator.of(context).pushNamed(
+                                  'GameRules', arguments:'');
 
-                              vertical: 10, horizontal: 97),
-
-                          shape: StadiumBorder(),
-                          onPressed: () async {Navigator.of(context).pushNamed(
-                              'GameRules', arguments: '');
 
 
-
-
-                          },
-                          child: Text('Game Rules', style: TextStyle(color: Colors
-                              .white, fontSize: 25, fontWeight: FontWeight.w700
-                            ,),),
-                          color: Colors.red[800],
-
-                        ),
+                              },
+                                        child: Text(
+                                          'Game Rules',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w700,
+                                          ),
+                                        ),
+                                        color: Colors.green,
+                                      ),
+                                    ),
 
                               SizedBox(
                                 height: 20

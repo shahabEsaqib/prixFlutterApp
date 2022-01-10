@@ -3,7 +3,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_loginpage/shared/helperfunction.dart';
-import 'package:flutter_loginpage/widgets/BackgroundImage1.dart';
 
 
 
@@ -50,10 +49,10 @@ class _Spetial2State extends State<Spetial2> with WidgetsBindingObserver {
     return Center(
       child: Stack(
           children: [
-            BackgroundImage1(),
+            // BackgroundImage1(),
             Center(
               child: Scaffold(
-                backgroundColor: Colors.transparent,
+                backgroundColor: Colors.white,
 
                 body: Form(
 
@@ -74,7 +73,7 @@ class _Spetial2State extends State<Spetial2> with WidgetsBindingObserver {
                               'You have :',
                               style: TextStyle(
                                   fontSize: 50, fontWeight: FontWeight.w300,
-                                  color: Colors.white, fontFamily: 'Raleway'
+                                  color: Colors.grey.shade600, fontFamily: 'Raleway'
 
                               ),
                               textAlign: TextAlign.left,
@@ -88,7 +87,7 @@ class _Spetial2State extends State<Spetial2> with WidgetsBindingObserver {
                               '     '+points+' points',
                               style: TextStyle(
                                   fontSize: 40, fontWeight: FontWeight.w300,
-                                  color: Colors.white, fontFamily: 'Raleway'
+                                  color: Colors.grey.shade600, fontFamily: 'Raleway'
 
                               ),
                               textAlign: TextAlign.left,
@@ -113,7 +112,7 @@ class _Spetial2State extends State<Spetial2> with WidgetsBindingObserver {
                                 child: Text('Back', style: TextStyle(color: Colors
                                     .white, fontSize: 25, fontWeight: FontWeight.w700
                                   ,),),
-                                color: Colors.red[800],
+                                color: Colors.green,
 
                               ),
                             ),

@@ -4,14 +4,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_loginpage/palatte.dart';
 import 'package:flutter_loginpage/services/auth_services.dart';
 import 'package:flutter_loginpage/services/database1.dart';
 import 'package:flutter_loginpage/shared/helperfunction.dart';
 import 'package:flutter_loginpage/shared/loadingg.dart';
 import 'package:flutter_loginpage/widgets/FormVal.dart';
 import 'package:flutter_loginpage/widgets/Formsignup.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 class LoginPage extends StatefulWidget {
@@ -167,7 +165,7 @@ class _MyLoginPageState extends State<LoginPage> {
                                       fontSize: 30,
                                       color: Colors.green,
                                       fontWeight: FontWeight.bold),
-                                  textAlign: TextAlign.left,
+                                  textAlign: TextAlign.center,
                                 ),
                               ),
                             ),
@@ -190,6 +188,10 @@ class _MyLoginPageState extends State<LoginPage> {
                                           focusNode: myFocusNode,
                                           controller: emailController,
                                           decoration: InputDecoration(
+                                             focusedBorder:OutlineInputBorder(
+            borderSide:  BorderSide(color: Colors.black, width: 2.0),
+            borderRadius: BorderRadius.circular(40),
+          ),
                                               enabledBorder: OutlineInputBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(32),
@@ -253,7 +255,12 @@ class _MyLoginPageState extends State<LoginPage> {
                                     Container(
                                       child: Column(children: [
                                         TextFormField(
+                                          obscureText: _isObscure,
                                           decoration: InputDecoration(
+                                             focusedBorder:OutlineInputBorder(
+            borderSide:  BorderSide(color: Colors.black, width: 2.0),
+            borderRadius: BorderRadius.circular(40),
+          ),
                                               enabledBorder: OutlineInputBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(32),
@@ -287,7 +294,7 @@ class _MyLoginPageState extends State<LoginPage> {
                                                     color: Colors.green,
                                                     width: 1),
                                               )),
-                                          obscureText: _isObscure,
+                                          
                                           validator: (value) {
                                             if (value.trim().isEmpty) {
                                               return 'password is required';
@@ -345,17 +352,23 @@ class _MyLoginPageState extends State<LoginPage> {
                                             fontWeight: FontWeight.w700,
                                           ),
                                         ),
-                                        color: Colors.red,
+                                        color: Colors.green,
+                                      ),
+                                      
+                                    ),
+                                    // SizedBox(height: 8,),
+                                    Padding(
+                                      padding: const EdgeInsets.only(bottom: 10),
+                                      child: Container(
+                                        height: 16,
+                                        child: Text(
+                                          error,
+                                          style: TextStyle(
+                                              color: Colors.red, fontSize: 14.0),
+                                        ),
                                       ),
                                     ),
-                                    Container(
-                                      height: 8,
-                                      child: Text(
-                                        error,
-                                        style: TextStyle(
-                                            color: Colors.red, fontSize: 14.0),
-                                      ),
-                                    ),
+                                    // SizedBox(height: 8,),
                                     Container(
                                       width: 175,
                                       margin: EdgeInsets.symmetric(
@@ -364,17 +377,17 @@ class _MyLoginPageState extends State<LoginPage> {
                                         child: Row(children: [
                                           Container(
                                             height: 1,
-                                            color: Colors.white,
+                                            color: Colors.grey.shade600,
                                             width: 80,
                                           ),
                                           Container(
                                             child: Text('or',
                                                 style: TextStyle(
-                                                    color: Colors.white)),
+                                                    color: Colors.grey.shade600)),
                                           ),
                                           Container(
                                             height: 1,
-                                            color: Colors.white,
+                                            color: Colors.grey.shade600,
                                             width: 80,
                                           ),
                                         ]),

@@ -162,13 +162,14 @@ class _GameRulesState  extends State<GameRules> {
   Widget build(BuildContext context) {
     return  Stack(
           children: [
-            BackgroundImage1(),
+            // BackgroundImage1(),
             Center(
               child: Scaffold(
-                backgroundColor: Colors.transparent,
+                backgroundColor: Colors.white,
                 appBar: AppBar(
-                  backgroundColor: Color.fromARGB(255, 153, 0, 0),
-
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.grey.shade600,
+                  elevation: 0,
 
                   title: Text("Game Rules"),
 
@@ -181,63 +182,76 @@ class _GameRulesState  extends State<GameRules> {
                               ,
                             ),
 
-                            Container(margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),width: 500,height: 30,
-                              child: Row(children: [
-                                RichText(
-                                  text: TextSpan(
-                                    children: [
-                                      WidgetSpan(
-                                        child: Icon(Icons.album, size: 9,color: Colors.red,),
+                            Container(
+                              
+                              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),width: 500,height: 40,
+                              child: Container(
+                                width: MediaQuery.of(context).size.width,
+                                child: Row(children: [
+                                  Expanded(
+                                    flex: 2,
+                                    child: RichText(
+                                      text: TextSpan(
+                                        children: [
+                                          WidgetSpan(
+                                            child: Icon(Icons.album, size: 9,color: Colors.green,),
+                                          ),
+                                  
+                                          TextSpan(
+                                              text: ''' Enable local games :  
+                                              ''',style: TextStyle(fontSize: 21,color: Colors.black,fontWeight: FontWeight.w500)
+                                          ),
+                                  
+                                        ],
                                       ),
-
-                                      TextSpan(
-                                          text: ''' Enable local games :  
- ''',style: TextStyle(fontSize: 21,color: Colors.white)
-                                      ),
-
-                                    ],
+                                    ),
                                   ),
-                                ),
-                                ToggleButtons(
-                                  children: <Widget>[
-                                    Icon(Icons.wifi_sharp,size: 20,color: Colors.white,),
-                                  ],
-                                  onPressed: (int index) async {
-                                    buttonbool=await HelperFunctions.getLocalGameSharedPreference();
+                                  Expanded(
+                                    flex: 1,
+                                    child: ToggleButtons(
+                                      
+                                      children: <Widget>[
+                                        Icon(Icons.wifi_sharp,size: 30,color: Colors.black,),
+                                      ],
+                                      onPressed: (int index) async {
+                                        buttonbool=await HelperFunctions.getLocalGameSharedPreference();
 
-                                      if(buttonbool==true){
+                                          if(buttonbool==true){
 
-                                        setState(() {buttonbool=false;});
-                                        listofbool[0]=buttonbool;
-                                      await HelperFunctions.saveLocalGameSharedPreference(false);
+                                            setState(() {buttonbool=false;});
+                                            listofbool[0]=buttonbool;
+                                          await HelperFunctions.saveLocalGameSharedPreference(false);
 
-                                      }
-                                      else{
-                                        setState(() {buttonbool=true;});
-                                        listofbool[0]=buttonbool;
-                                        await HelperFunctions.saveLocalGameSharedPreference(true);
-
-
-                                      }
-                                      print(buttonbool);
+                                          }
+                                          else{
+                                            setState(() {buttonbool=true;});
+                                            listofbool[0]=buttonbool;
+                                            await HelperFunctions.saveLocalGameSharedPreference(true);
 
 
-                                  },
-                                  isSelected: listofbool,
+                                          }
+                                          print(buttonbool);
 
-                                ),
-                              ]),),
 
-                            Container(margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),width: 500,
+                                      },
+                                      isSelected: listofbool,
+
+                                    ),
+                                  ),
+                                ]),
+                              ),),
+
+                            Container(
+                              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),width: 500,
                               child: RichText(
                                 text: TextSpan(
                                   children: [
                                     WidgetSpan(
-                                      child: Icon(Icons.album, size: 9,color: Colors.red,),
+                                      child: Icon(Icons.album, size: 9,color: Colors.green,),
                                     ),
                                     TextSpan(
                                       text: ''' Time left for the current game : 
-    '''+ text,style: TextStyle(fontSize: 21,color: Colors.white)
+    '''+ text,style: TextStyle(fontSize: 21,color: Colors.black,fontWeight: FontWeight.w500)
                                     ),
                                   ],
                                 ),
@@ -250,17 +264,17 @@ class _GameRulesState  extends State<GameRules> {
                               text: TextSpan(
                                 children: [
                                   WidgetSpan(
-                                    child: Icon(Icons.album, size: 9,color: Colors.red,),
+                                    child: Icon(Icons.album, size: 9,color: Colors.green,),
                                   ),
                                 TextSpan(
                                 text: ''' Maximum players 10.
 
-''',style: TextStyle(fontSize: 21,color: Colors.white, fontWeight: FontWeight.w500),),
+''',style: TextStyle(fontSize: 21,color: Colors.black, fontWeight: FontWeight.w500),),
                                   WidgetSpan(
-                                    child: Icon(Icons.album, size: 9,color: Colors.red,),
+                                    child: Icon(Icons.album, size: 9,color: Colors.green,),
                                   ),
                                   TextSpan(
-                                    text: ''' When is game complete.''',style: TextStyle(fontSize: 21,color: Colors.white, fontWeight: FontWeight.w500),
+                                    text: ''' When is game complete.''',style: TextStyle(fontSize: 21,color: Colors.black, fontWeight: FontWeight.w500),
                                   ),
                                 ],
                               ),
@@ -287,10 +301,10 @@ class _GameRulesState  extends State<GameRules> {
                                 text: TextSpan(
                                   children: [
                                     WidgetSpan(
-                                      child: Icon(Icons.album, size: 9,color: Colors.yellow,),
+                                      child: Icon(Icons.album, size: 9,color: Colors.green,),
                                     ),
                                     TextSpan(
-                                      text: ''' After is everyone is tagged''',style: TextStyle(fontSize: 18,color: Colors.white, fontWeight: FontWeight.w300),
+                                      text: ''' After is everyone is tagged''',style: TextStyle(fontSize: 18,color: Colors.black, fontWeight: FontWeight.w300),
                                     ),
                                   ],
                                 ),
@@ -305,7 +319,7 @@ class _GameRulesState  extends State<GameRules> {
                                 text: TextSpan(
                                   children: [
                                     WidgetSpan(
-                                      child: Icon(Icons.album, size: 9,color: Colors.yellow,),
+                                      child: Icon(Icons.album, size: 9,color: Colors.green,),
                                     ),
                                     TextSpan(
                                       text: ''' Time Limit:
@@ -313,7 +327,7 @@ class _GameRulesState  extends State<GameRules> {
     . 7 days
     . 14 days
     . 21 days
-    . 1 month''',style: TextStyle(fontSize: 18,color: Colors.white,fontWeight :FontWeight.w300),
+    . 1 month''',style: TextStyle(fontSize: 18,color: Colors.black,fontWeight :FontWeight.w300),
                                     ),
                                   ],
                                 ),

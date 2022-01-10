@@ -97,14 +97,16 @@ class _TesttesttestState extends State<Testtesttest> with WidgetsBindingObserver
     return Center(
       child: Stack(
           children: [
-            BackgroundImage1(),
+            // BackgroundImage1(),
             Center(
               child: Scaffold(
-                backgroundColor: Colors.transparent,
+                backgroundColor: Colors.white,
                 appBar: AppBar(
-                  backgroundColor: Color.fromARGB(255, 153, 0, 0),
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.grey.shade600,
+                  elevation: 0,
                   leading: IconButton(
-                      icon: Icon(Icons.arrow_back, color: Colors.black),
+                      icon: Icon(Icons.arrow_back, color: Colors.grey.shade600),
                       onPressed: () => Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => Olduser()),)),
@@ -126,7 +128,7 @@ class _TesttesttestState extends State<Testtesttest> with WidgetsBindingObserver
                           Center(
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                  primary: Color.fromARGB(255, R, G, B)),
+                                  primary: Colors.green),
 
                               onPressed: () async {
                                 print("khedmet aasba");

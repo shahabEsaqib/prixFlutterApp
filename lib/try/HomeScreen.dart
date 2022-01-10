@@ -13,6 +13,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
+  
   Map<String, dynamic> userMap;
   bool isLoading = false;
   String error ='';
@@ -82,9 +83,11 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
 
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 30, 30, 30),
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 153, 0, 0),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.grey.shade600,
+        elevation: 0,
 
 
         title: Text("Search"),
@@ -111,31 +114,67 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
             child: Container(
               height: size.height / 14,
               width: size.width / 1.15,
-              child: TextField(style: TextStyle(color: Colors.white),
+              child: TextField(style: TextStyle(color: Colors.black),
                 controller: _search,
                 decoration: InputDecoration(
-                  hintText: "Search",
-                  hintStyle: TextStyle(color: Colors.white),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),borderSide: BorderSide(color: Colors.brown)
-
-
-
-                  ),
-                ),
+                                              enabledBorder: OutlineInputBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(32),
+                                                borderSide: BorderSide(
+                                                    color: Colors.green,
+                                                    width: 1),
+                                              ),
+                                              focusedBorder:OutlineInputBorder(
+            borderSide:  BorderSide(color: Colors.black, width: 2.0),
+            borderRadius: BorderRadius.circular(40),
+          ),
+                                              labelStyle: TextStyle(
+                                                  color: Colors.green),
+                                              hintStyle: TextStyle(
+                                                  color: Colors.green,
+                                                  fontSize: 15),
+                                              // icon: Icon(Icons.mail),
+                                              prefixIcon: Icon(Icons.search,
+                                                  color: Colors.green
+                                                      ),
+                                              suffixIcon: _search
+                                                      .text.isEmpty
+                                                  ? Text('')
+                                                  : GestureDetector(
+                                                      onTap: () {
+                                                        _search.clear();
+                                                      },
+                                                      child: Icon(Icons.close,color: Colors.green,)),
+                                              hintText: 'Friend Name',
+                                              labelText: 'Search',
+                                              border: OutlineInputBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(32),
+                                                borderSide: BorderSide(
+                                                    color: Colors.green,
+                                                    width: 1),
+                                              )),
               ),
             ),
           ),
           SizedBox(
             height: size.height / 50,
           ),
-          ElevatedButton(style: ElevatedButton.styleFrom(
-          primary: Colors.black12,),
-            onPressed: onSearch,
-            child: Text("Search",style: TextStyle(color: Colors.white),),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: 50,
+            padding: const EdgeInsets.symmetric(horizontal: 60,
+                                          ),
+            child: ElevatedButton(style: ElevatedButton.styleFrom(
+            primary: Colors.green,
+            shape: StadiumBorder(),
+            ),
+              onPressed: onSearch,
+              child: Text("Search",style: TextStyle(color: Colors.white),),
+              
 
 
-
+            ),
           ),
           SizedBox(
             height: size.height / 30,
@@ -148,7 +187,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                 margin: const EdgeInsets.all(2.0),
                 padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
                 alignment: Alignment.centerLeft,
-                color: Color.fromARGB(255, 169, 73, 73),
+                color: Colors.green,
                 width: 550,
                 height: 70,
                 child : Center(
@@ -184,10 +223,10 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
                       },
                       child: Text('Send request', style: TextStyle(color: Colors
-                          .white, fontSize: 17, fontWeight: FontWeight.w700
+                          .black, fontSize: 17, fontWeight: FontWeight.w700
                         ,),),
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.black12,),
+                        primary: Colors.green,),
 
                     ),
                   ],),

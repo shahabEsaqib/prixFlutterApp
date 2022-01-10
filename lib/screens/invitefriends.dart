@@ -73,9 +73,11 @@ class _InvitefriendsState extends State<Invitefriends> with WidgetsBindingObserv
 
 
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 30, 30, 30),
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 153, 0, 0),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.grey.shade600,
+        elevation: 0,
         actions: [
           ElevatedButton(//height: 5,
             //padding: EdgeInsets.symmetric(
@@ -108,8 +110,14 @@ class _InvitefriendsState extends State<Invitefriends> with WidgetsBindingObserv
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 1.0, horizontal: 4.0),
               child: Card(
+                 shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
                 child: ListTile(
-                  tileColor: Color.fromARGB(255, 169, 73, 73),
+                   shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  tileColor: Colors.green,
                   onTap: () async {
                     await FirebaseFirestore.instance.collection("users")
                         .doc(myfriends[index]).update({
@@ -127,7 +135,7 @@ class _InvitefriendsState extends State<Invitefriends> with WidgetsBindingObserv
 
 
                   },
-                  title: Text(myfriends[index]+"                                          invite    ",style: TextStyle(color:Colors.white),textAlign: TextAlign.center,),
+                  title: Text(myfriends[index]+"                                          invite    ",style: TextStyle(color:Colors.black),textAlign: TextAlign.center,),
 
 
 

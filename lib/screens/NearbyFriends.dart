@@ -147,9 +147,11 @@ class _NearbyFriendsState extends State<NearbyFriends> with WidgetsBindingObserv
 
 
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 30, 30, 30),
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 153, 0, 0),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.grey.shade600,
+        elevation: 0,
 
         title: Text("Nearby Friends"),
 
@@ -160,12 +162,19 @@ class _NearbyFriendsState extends State<NearbyFriends> with WidgetsBindingObserv
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 1.0, horizontal: 4.0),
               child: Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
                 child: ListTile(
-                  tileColor: Color.fromARGB(255, 169, 73, 73),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  tileColor: Colors.green,
                   onTap: () async {
 
                   },
-                  title: Text("            "+realRealtab[index],style: TextStyle(color:Colors.white),),
+                  title: Text("            "+realRealtab[index],style: TextStyle(color:Colors.black
+                  ),),
 
 
 
